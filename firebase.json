@@ -1,0 +1,22 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**",
+      "firebase-debug.log"
+    ],
+    "headers": [
+      {
+        "source": "**/*.m4a",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "audio/mp4"
+          }
+        ]
+      }
+    ]
+  }
+}

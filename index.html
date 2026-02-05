@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우리 동네 소리지도 - 징검다리스쿨 사북읍</title>
+    <meta name="description" content="강원도 정선군 사북읍의 소리를 담은 인터랙티브 지도입니다.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="우리 동네 소리지도 - 징검다리스쿨 사북읍">
+    <meta property="og:description" content="정선군 지역인재 양성 프로그램 징검다리스쿨 디자인반과 음악반 학생들이 함께 만든 지도입니다.">
+    <meta property="og:image" content="https://sabuksoundmap.web.app/resource/thumbnail.png">
+    <meta property="og:url" content="https://sabuksoundmap.web.app">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="우리 동네 소리지도 - 징검다리스쿨 사북읍">
+    <meta name="twitter:description" content="정선군 지역인재 양성 프로그램 징검다리스쿨 디자인반과 음악반 학생들이 함께 만든 지도입니다.">
+    <meta name="twitter:image" content="https://sabuksoundmap.web.app/resource/thumbnail.png">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+
+<body>
+    <!-- 헤더 좌측 -->
+    <header class="header-left">
+        <h1 class="title">우리 동네 소리지도</h1>
+        <p class="subtitle"><a href="#" class="more-link">프로젝트 소개 →</a></p>
+    </header>
+
+    <!-- 헤더 우측 -->
+    <header class="header-right">
+        <h2 class="title">징검다리스쿨 사북읍</h2>
+        <p class="subtitle" style="text-align: right;">강원도 정선군 사북읍</p>
+    </header>
+
+    <!-- 지도 뷰어 -->
+    <div class="viewer-container" id="viewer">
+        <div class="image-wrapper" id="imageWrapper">
+            <img src="resource/Background.jpg" alt="사북읍 소리지도" id="mainImage" draggable="false">
+
+            <!-- 장소 마커들 -->
+            <!-- data-audio: 오디오 파일 경로 -->
+
+            <div class="place-marker" style="left: 17%; top: 11.5%;" data-audio="resource/sound/junhaechan-650.m4a"
+                data-audio2="resource/sound/hamgunyul-byulebyul.m4a" data-name2="별에별거리">
+                <img src="resource/650거리.png" alt="650거리">
+                <span class="place-title" style="top: -30px; left: 50%; transform: translateX(-50%);">650거리</span>
+            </div>
+
+            <div class="place-marker" style="left: 43%; top: 5%;" data-audio="resource/sound/junhaechan-center.m4a">
+                <img src="resource/행정복지센터.png" alt="행정복지센터">
+                <span class="place-title" style="top: -0px; right: 0;">행정복지센터</span>
+            </div>
+
+            <div class="place-marker" style="left: 53%; top: 10%;"
+                data-audio="resource/sound/leejunghwan-injaebaljunso.m4a">
+                <img src="resource/인재발전소.png" alt="인재발전소">
+                <span class="place-title" style="top: -30px; left: 50%; transform: translateX(-50%);">인재발전소</span>
+            </div>
+
+            <div class="place-marker" style="left: 86%; top: 4%;" data-audio="resource/sound/junhaechan-school.m4a">
+                <img src="resource/사북초등학교.png" alt="사북초등학교">
+                <span class="place-title" style="top: 105%; left: 50%; transform: translateX(-50%);">사북초등학교</span>
+            </div>
+
+            <div class="place-marker" style="left: 29%; top: 20.5%;"
+                data-audio="resource/sound/byunjuha-sabukmarket.m4a">
+                <img src="resource/사북시장.png" alt="사북시장">
+                <span class="place-title" style="top: -30px; left: 50%; transform: translateX(-50%);">사북시장</span>
+            </div>
+
+            <div class="place-marker" style="left: 18%; top: 25%;" data-audio="resource/sound/byunjuha-nonghyup.m4a">
+                <img src="resource/농협은행.png" alt="농협은행">
+                <span class="place-title" style="top: -30px; left: 50%; transform: translateX(-50%);">농협은행</span>
+            </div>
+
+            <div class="place-marker" style="left: 42%; top: 20%;" data-audio="resource/sound/parkjinhwi-pachulso.m4a">
+                <img src="resource/파출소.png" alt="파출소">
+                <span class="place-title" style="top: -20px; left: 50%; transform: translateX(-50%);">파출소</span>
+            </div>
+
+            <div class="place-marker" style="left: 72%; top: 7%;" data-audio="resource/sound/parkjiyu-sabukjunggo.m4a">
+                <img src="resource/사북중고등학교.png" alt="사북중고등학교">
+                <span class="place-title" style="bottom: 0; right: 10%; text-align: right;">사북중,<br>고등학교</span>
+            </div>
+
+            <div class="place-marker" style="left: 68%; top: 25%;"
+                data-audio="resource/sound/leejunghwan-imgiltaek.m4a">
+                <img src="resource/임길택시인거리.png" alt="임길택시인거리">
+                <span class="place-title"
+                    style="top: 105%; left: 50%; transform: translateX(-50%); text-align: center;">임길택<br>시인 거리</span>
+            </div>
+
+            <div class="place-marker" style="left: 82%; top: 25%;" data-audio="resource/sound/ohamin-24mart.m4a">
+                <img src="resource/24시희망마트.png" alt="24시희망마트">
+                <span class="place-title" style="top: 105%; left: 50%; transform: translateX(-50%);">24시희망마트</span>
+            </div>
+
+            <div class="place-marker" style="left: 25%; top: 42%;" data-audio="resource/sound/parkjiyu-ucheguk.m4a">
+                <img src="resource/우체국.png" alt="우체국">
+                <span class="place-title" style="top: 105%; left: 50%; transform: translateX(-50%);">우체국</span>
+            </div>
+
+            <div class="place-marker" style="left: 38%; top:43%;"
+                data-audio="resource/sound/hamgunyul-sabukstation.m4a">
+                <img src="resource/사북역.png" alt="사북역">
+                <span class="place-title" style="top: 105%; left: 50%; transform: translateX(-50%);">사북역</span>
+            </div>
+
+            <div class="place-marker" style="left: 55%; top: 43%;" data-audio="resource/sound/leejunghwan-jihabodo.m4a">
+                <img src="resource/사북지하보도.png" alt="사북지하보도">
+                <span class="place-title" style="top: 105%; left: 50%; transform: translateX(-50%);">사북지하보도</span>
+            </div>
+
+            <div class="place-marker" style="left: 79%; top: 40%;" data-audio="resource/sound/byunjuha-hospital.m4a">
+                <img src="resource/정선군립병원.png" alt="정선군립병원">
+                <span class="place-title" style="top: 85%; right: 0;">정선군립병원</span>
+            </div>
+
+            <div class="place-marker" style="left: 30%; top: 54%;" data-audio="resource/sound/parkjiyu-ppurigwan.m4a">
+                <img src="resource/뿌리관.png" alt="뿌리관">
+                <span class="place-title" style="top: 105%; left: 0;">뿌리관</span>
+            </div>
+
+            <div class="place-marker" style="left: 60%; top: 56%;" data-audio="resource/sound/junhaechan-library.m4a">
+                <img src="resource/사북공공도서관.png" alt="사북공공도서관">
+                <span class="place-title" style="top: 100%; left: 0;">사북공공도서관</span>
+            </div>
+
+            <div class="place-marker" style="left: 55%; top: 69%;"
+                data-audio="resource/sound/junhaechan-jinggumdari.m4a">
+                <img src="resource/징검다리교육센터.png" alt="징검다리교육센터">
+                <span class="place-title" style="top: 105%; left: 50%; transform: translateX(-50%);">징검다리 교육센터</span>
+            </div>
+
+            <div class="arrow-marker" style="left: 65%; top: 64%;">
+                <img src="resource/arrow.png">
+            </div>
+
+            <div class="place-marker" style="left: 66%; top: 80%;" data-audio="resource/sound/parkjinhwi-parangsae.m4a">
+                <img src="resource/파랑새공원.png" alt="파랑새공원">
+                <span class="place-title" style="top: 70%; right: -80%;">파랑새공원</span>
+            </div>
+
+            <div class="place-marker" style="left: 4%; top: 82%;" data-audio="resource/sound/byunjuha-tangwang.m4a">
+                <img src="resource/탄광문화공원.png" alt="탄광문화공원">
+                <span class="place-title" style="top: 110%; left: 50%; transform: translateX(-50%);">탄광문화공원</span>
+            </div>
+
+            <div class="place-marker" style="left: 36%; top: 79%;" data-audio="resource/sound/parkjiyu-highone.m4a"
+                data-name="하이원리조트" data-audio2="resource/sound/junhaechan-kangwonland.m4a" data-name2="강원랜드">
+                <img src="resource/하이원리조트.png" alt="하이원리조트, 강원랜드">
+                <span class="place-title" style="top: 105%; left: 50%; transform: translateX(-50%);">하이원리조트, 강원랜드</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 컨트롤 패널 (우측 하단) -->
+    <div class="controls">
+        <div class="controls-left">
+            <button class="control-btn" id="zoomIn" title="확대">
+                <img src="resource/plus.png" alt="확대">
+            </button>
+            <button class="control-btn" id="zoomOut" title="축소">
+                <img src="resource/minus.png" alt="축소">
+            </button>
+        </div>
+        <div class="controls-right">
+            <div class="track-row track-1">
+                <p class="location-btn">650거리</p>
+                <button class="play-btn" title="재생">
+                    <img src="resource/play.png" alt="재생">
+                </button>
+            </div>
+            <div class="track-row track-2">
+                <p class="location-btn">별애별거리</p>
+                <button class="play-btn" title="재생">
+                    <img src="resource/play.png" alt="재생">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 모달 -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">
+                <img src="resource/close.png" alt="닫기">
+            </button>
+
+            <h2 class="modal-title">징검다리스쿨이란?</h2>
+
+            <p class="modal-text">
+                징검다리스쿨은 강원 정선군이 폐광 이후 지역 소멸과 교육 격차 문제에 대응하기 위해 운영하는 공공 교육 프로그램입니다. 폐광지역이라는 지리적, 사회적 조건 속에서 성장 기회가 제한되기
+                쉬운 초·중등 학생들에게 학교
+                밖에서의 지속적인 배움과 탐색의 공간을 제공하는 것을 목표로 합니다.
+                <br><br>
+                인문학부, 수학부, 영어학부, 기술공학부, 예술학부 5개 학부를 바탕으로 다양한 영역의 융합 교육을 통해 학생들은 단순한 학습 보충을 넘어, 스스로 질문하고 생각하며 지역과 자신의 삶을
+                연결하는 경험을 합니다.
+                징검다리스쿨은 교육을 개인의 성취가 아닌 지역의 미래를 함께 만들어 가는 과정으로 바라보며, 아이들이 자신의 환경을 이해하고 주체적으로 성장할 수 있도록 돕는 지역 기반 공공 교육 모델을
+                실천하고 있습니다.
+            </p>
+
+            <hr class="modal-divider">
+
+            <h3 class="modal-subtitle">우리동네 소리지도</h3>
+
+            <p class="modal-text">
+                〈우리동네 소리지도〉는 정선군 지역인재 양성 프로그램 징검다리스쿨 디자인반과 음악반 학생들이 함께 만든 지도입니다.
+                <br><br>
+                학생들은 직접 동네를 거닐며 의미 있는 장소를 사진으로 남기고, 거기서 들리는 소리를 녹음했습니다. 그렇게 모은 이야기를 바탕으로 각 공간을 상징할 수 있는 그림을 그리고, 길의 형태와
+                동네 곳곳의 생생한 모습까지
+                직접 디자인했습니다.
+                <br><br>
+                각 장소에서 녹음한 소리를 활용해 작곡한 짧은 음악은 웹사이트에서 확인하실 수 있습니다. 우측 하단 QR코드로 접속하면 웹사이트용 인터랙티브 소리 지도를 만나볼 수 있는데요. 각 장소를
+                클릭하면 해당하는 음악이
+                재생됩니다. 이 소리지도를 통해 사북을 듣고 느끼며 아이들의 눈으로 감각하는 경험을 나누어 보세요.
+            </p>
+
+            <hr class="modal-divider">
+
+            <h3 class="modal-subtitle">참여 학생</h3>
+
+            <div class="modal-text modal-students">
+                <p class="modal-label" style="min-width:60px;">디자인</p>
+                <p class="highlight-name">김서윤, 김정원, 남혁, 모세진, 박서우, 박혜윤, 안아인, 용지솔,
+                    정건우, 정아린,
+                    정찬후, 홍재민</p>
+            </div>
+
+            <div class="modal-text modal-students">
+                <p class="modal-label" style="min-width:60px;">음악</p>
+                <p class="highlight-name">박지유, 박진휘, 변주하, 오하민, 이정환, 이찬율, 전해찬,
+                    함건율</p>
+            </div>
+
+            <hr class="modal-divider">
+
+            <h3 class="modal-subtitle">지도교사 및 제작</h3>
+
+            <p class="modal-text modal-info">
+                <span class="modal-label">디자인반 지도</span><span class="highlight-name">윤수현 (리아)</span>
+            </p>
+            <p class="modal-text modal-info">
+                <span class="modal-label">음악반 지도</span><span class="highlight-name">박지영 (메르)</span>
+            </p>
+
+            <p class="modal-text modal-info modal-gap">
+                <span class="modal-label">발행</span><span class="highlight-name">2026년 2월 1일</span>
+            </p>
+            <p class="modal-text modal-info">
+                <span class="modal-label">문의</span><span class="highlight-name">징검다리스쿨 예술학부
+                    sss.arts.00000@gmail.com</span>
+            </p>
+
+            <p class="modal-text modal-info modal-gap">
+                <span class="modal-label">인쇄</span><span class="highlight-name">코우너스</span>
+            </p>
+            <p class="modal-text modal-info">
+                <span class="modal-label">서체</span><span class="highlight-name">긱산스</span>
+            </p>
+            <p class="modal-text modal-info">
+                <span class="modal-label">웹 디자인 및 개발</span><span class="highlight-name">어랏</span>
+            </p>
+        </div>
+    </div>
+
+    <script src="js/viewer.js"></script>
+</body>
+
+</html>

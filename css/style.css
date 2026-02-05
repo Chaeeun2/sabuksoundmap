@@ -1,0 +1,493 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #fe715f;
+  --primary-dark: #fe715f;
+  --bg-color: #ffffff;
+  --text-color: #fe715f;
+  --white: #ffffff;
+}
+
+body {
+  font-family:
+    "Pretendard",
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    sans-serif;
+  background: var(--bg-color);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* 헤더 좌측 */
+.header-left {
+  position: fixed;
+  top: 30px;
+  left: 40px;
+  z-index: 100;
+  background-color: white;
+  padding: 2px 8px 5px 8px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--primary-color);
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--primary-color);
+}
+
+.more-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+}
+
+.more-link:hover {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+/* 헤더 우측 */
+.header-right {
+  position: fixed;
+  top: 30px;
+  right: 40px;
+  z-index: 100;
+  background-color: white;
+  padding: 2px 5px 2px 5px;
+}
+
+.school-name {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: -0.3px;
+}
+
+/* 메인 뷰어 컨테이너 */
+.viewer-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  cursor: grab;
+  background: var(--bg-color);
+}
+
+.viewer-container:active {
+  cursor: grabbing;
+}
+
+/* 이미지 래퍼 */
+.image-wrapper {
+  position: absolute;
+  transform-origin: 0 0;
+  will-change: transform;
+  transition: transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 드래그 중에는 transition 비활성화 */
+.image-wrapper.dragging {
+  transition: none;
+}
+
+.image-wrapper > img {
+  width: 100vw;
+  height: auto;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* 장소 마커 */
+.place-marker {
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 10;
+}
+
+.place-marker:hover {
+  transform: rotate(10deg);
+  z-index: 20;
+}
+
+/* 재생 중인 마커 */
+.place-marker.playing {
+  z-index: 30;
+  animation: bounce 0.8s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.place-marker img {
+  height: auto; /* 비율 유지 */
+}
+
+/* 화살표 마커 (클릭/호버 없음) */
+.arrow-marker {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.arrow-marker img {
+  height: auto;
+}
+
+/* 장소 타이틀 */
+.place-title {
+  position: absolute;
+  font-size: 18px;
+  font-weight: 800;
+  color: #1a7a82;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* 컨트롤 패널 (우측 하단) */
+.controls {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  z-index: 100;
+  background-color: white;
+  border: 2px solid var(--primary-color);
+  padding: 20px 25px;
+}
+
+.controls-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.controls-right {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.controls-right.visible {
+  display: flex;
+}
+
+.track-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 줌 버튼 (+, -) */
+.control-btn {
+  width: 35px;
+  height: 35px;
+  background: var(--white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  border: none;
+}
+
+.control-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.control-btn:hover {
+  transform: scale(1.08);
+}
+
+.control-btn:active {
+  transform: scale(0.95);
+}
+
+/* 트랙 이름 */
+.location-btn {
+  background: var(--white);
+  color: var(--primary-color);
+  font-size: 20px;
+  font-weight: 800;
+  font-family: "Pretendard", sans-serif;
+  white-space: nowrap;
+  margin: 0;
+}
+
+/* 재생 버튼 */
+.play-btn {
+  width: 35px;
+  height: 35px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  background: none;
+  flex-shrink: 0;
+}
+
+.play-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.play-btn:hover {
+  transform: scale(1.08);
+}
+
+.play-btn:active {
+  transform: scale(0.95);
+}
+
+/* 모달 오버레이 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+/* 모달 */
+.modal {
+  background: white;
+  max-width: 750px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 45px 40px;
+  position: relative;
+  border: 2px solid var(--primary-color);
+}
+
+/* 모달 스크롤바 스타일 */
+.modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+/* 닫기 버튼 */
+.modal-close {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background: none;
+  border: none;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.modal-close img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.modal-close:hover {
+  opacity: 0.7;
+}
+
+/* 모달 제목 */
+.modal-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #1a7a82;
+  margin-bottom: 20px;
+}
+
+/* 모달 부제목 */
+.modal-subtitle {
+  font-size: 26px;
+  font-weight: 800;
+  color: #1a7a82;
+  margin-bottom: 20px;
+}
+
+/* 모달 텍스트 */
+.modal-text {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+  word-break: keep-all;
+  line-height: 1.6;
+}
+
+/* 하이라이트 이름 (청록색) */
+.highlight-name {
+  color: var(--primary-color);
+}
+
+/* 라벨 */
+.modal-label {
+  color: #1a7a82;
+  font-weight: 800;
+  margin-right: 12px;
+}
+
+/* 참여학생 줄 */
+.modal-students {
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* 정보 줄 */
+.modal-info {
+  margin-bottom: 0px;
+}
+
+.modal-info.modal-gap {
+  margin-top: 20px;
+}
+
+/* 구분선 */
+.modal-divider {
+  border: none;
+  border-top: 2px solid var(--primary-color);
+  margin: 30px 0;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  /* 모바일에서는 높이 100%로 맞춤 */
+  .image-wrapper > img {
+    width: auto;
+    height: 100vh;
+  }
+
+  .header-left {
+    top: 20px;
+    left: 20px;
+  }
+
+  .title {
+    font-size: 19px;
+  }
+
+  .subtitle,
+  .school-name {
+    font-size: 14px;
+  }
+
+  .header-right {
+    top: 20px;
+    right: 20px;
+  }
+
+  .school-name {
+    font-size: 16px;
+  }
+
+  .controls {
+    bottom: 20px;
+    right: 20px;
+    gap: 15px;
+    padding: 10px 15px;
+  }
+
+  .control-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .location-btn {
+    font-size: 18px;
+  }
+
+  .play-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .modal-overlay {
+    padding: 0px;
+  }
+
+  .modal {
+    padding: 25px;
+    max-height: 100dvh;
+    border: none;
+  }
+
+  .modal-close {
+    top: 25px;
+    right: 25px;
+    font-size: 28px;
+    height: 20px;
+    width: 20px;
+  }
+
+  .modal-title {
+    font-size: 22px;
+  }
+
+  .modal-subtitle {
+    font-size: 22px;
+  }
+
+  .modal-text {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .place-title {
+    font-size: 15px;
+  }
+}
